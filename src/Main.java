@@ -6,7 +6,7 @@ import java.util.concurrent.Future;
 public class Main {
 
     public static void main(String[] args) {
-        Shop shop = new Shop();
+        Shop shop = new Shop("BestPrice");
         long start = System.nanoTime();
         Future<Double> futurePrice = shop.getPriceAsync("my favorite product"); // 상점에 제품가격 정보 요청
         long invocationTime = ((System.nanoTime()-start) / 1_000_000);
@@ -19,6 +19,7 @@ public class Main {
         }
         long retrievalTime = ((System.nanoTime() - start) / 1_000_000);
         System.out.println("Price returned after " + retrievalTime + " msecs");
-//        System.out.println(new Main().getPrice("15"));
     }
+
+
 }
